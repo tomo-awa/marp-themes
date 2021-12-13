@@ -1,0 +1,233 @@
+/* @theme 2color */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai-sublime.min.css');
+
+/* debug */
+/* * {
+    border: 1px dashed rgb(255, 0, 0);
+} */
+
+:root {
+	font-family: 'Noto Sans Japanese', sans-serif;
+    overflow: visible;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    mix-blend-mode: soft-light;
+
+    color: rgb(50, 50, 50);
+
+    background:rgb(255, 255, 255);
+
+    font-size: 10px;
+    padding: 3rem 5rem;
+    position: relative;
+
+    --h1-font-size: 5.0rem;
+    --h2-font-size: 4.5rem;
+    --h3-font-size: 4.0rem;
+    --h4-font-size: 3.5rem;
+    --h5-font-size: 3.0rem;
+    --h6-font-size: 2.5rem;
+    --default-font-size: 3rem;
+    --h-f-font-size: 2rem;
+    --code-font-size: 2.5rem;
+    --pagination-font-size: 1.5rem;
+
+    --base-color1: rgb(0, 130, 255);
+    --base-color2: rgb(220, 40, 255);
+    --highlight-color: rgba(255, 120, 170);
+    --gray-color: rgb(230, 230, 230);
+    --dark-bg: rgb(50, 50, 50);
+}
+section::after {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background-image: linear-gradient(to left, var(--base-color2) 0%, var(--base-color1) 100%);
+    font-size: var(--pagination-font-size);
+    font-weight: bold;
+    color: var(--gray-color);
+    content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
+
+h1, h2, h3, h4, h5, h6, p, li, table{
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+h1 {
+    font-size: var(--h1-font-size);
+    position: relative;
+}
+h2 {
+    font-size: var(--h2-font-size);
+    position: relative;
+    padding: 3rem 0rem;
+}
+h2::before{
+    color: var(--base-color1);
+    content: "▽ ";
+}
+h2::after {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    content: '';
+    border-radius: 0.5rem;
+    background-image: linear-gradient(to left, var(--base-color2) 0%, var(--base-color1) 20%);
+}
+h3 {
+    font-size: var(--h3-font-size);
+}
+h4 {
+    font-size: var(--h4-font-size);
+}
+h5 {
+    font-size: var(--h5-font-size);
+}
+h6 {
+    font-size: var(--h6-font-size);
+}
+p, li, table {
+    font-size: var(--default-font-size);
+}
+li {
+    margin-right: 0;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0;
+    margin-top: 0.5rem;
+    padding-top: 0;
+}
+
+table{
+    border-spacing: 0.2rem;
+}
+table th,table td{
+    padding: 1rem;
+    margin: 1rem;
+}
+table tr:nth-child(odd){
+    background-color: var(--gray-color)
+}
+
+code {
+    font-family: 'Source Code Pro', monospace;
+    /* border: solid 0.2rem var(--dark-bg); */
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: var(--gray-color);
+    font-size: var(--code-font-size);
+}
+pre > code {
+    font-weight: normal;
+    margin: 0rem;
+    padding: 0rem;
+    border-radius: 0;
+    font-size: var(--code-font-size);
+    background-color: transparent;
+    border-color: transparent;
+}
+pre {
+    margin: 1rem;
+    padding: 2rem;
+    border-left: solid 1rem var(--base-color1);
+    border-radius: 1rem;
+    background: var(--dark-bg);
+    list-style: none;
+    color: var(--gray-color);
+    overflow: auto;
+}
+header,
+footer {
+    position: absolute;
+    font-size: var(--h-f-font-size);
+    left: 2rem;
+    height: 3rem;
+}
+header {
+    top: 1.5rem;
+}
+footer {
+    bottom: 1.5rem;
+}
+blockquote {
+    border-left: solid 1rem var(--gray-color);
+}
+
+section.title {
+    padding: 10rem;
+    --title-height: calc(var(--h1-font-size)*2.5);
+    --subtitle-height: calc(var(--h2-font-size)*1.5);
+    overflow: visible;
+    display: grid;
+    grid-template-rows: 1fr auto auto 1fr;
+    grid-template-areas: "." "title" "subtitle" ".";
+}
+section.title h1,
+section.title p {
+    margin: 0rem;
+    padding: 0rem;
+    text-align: center;
+    height: auto;
+    line-height: calc(var(--area-height)*1);
+    font-size: calc(var(--area-height)*0.5);
+}
+section.title h1 {
+    grid-area: title;
+    --area-height: var(--title-height);
+}
+section.title h1::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    content: '';
+    border-radius: 0.5rem;
+    background-image: linear-gradient(to left, var(--base-color2) 0%, var(--base-color1) 50%);
+}
+section.title p {
+    grid-area: subtitle;
+    --area-height: var(--subtitle-height);
+}
+
+section.split {
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "slideheading slideheading"
+        "leftpanel rightpanel";
+}
+section.split h2 {
+    grid-area: slideheading;
+}
+section.split .l {
+    grid-area: leftpanel;
+}
+section.split .r {
+    grid-area: rightpanel;
+}
+
+a {
+    color: var(--base-color1);
+}
+
+strong {
+    background: linear-gradient(transparent 60%, var(--highlight-color) 10%);
+}
+strong::before,
+strong::after{
+    content: ' ';
+}
