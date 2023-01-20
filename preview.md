@@ -1,7 +1,7 @@
 ---
 marp: true
 
-# theme: 2color
+theme: 2color
 
 header: "これはヘッダー"
 footer: "これはフッター"
